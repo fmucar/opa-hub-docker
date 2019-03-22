@@ -1,0 +1,1 @@
+-- 12.2.10 data upgrade script for Oracle

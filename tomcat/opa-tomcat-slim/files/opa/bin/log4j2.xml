@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Appenders>
+    <Console name="STDOUT" target="SYSTEM_OUT">
+      <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
+      <PatternLayout pattern="%5p (%F:%L) - %m%n"/>
+    </Console>
+    <File name="install-log" fileName="install.log" append="false">
+      <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+      <PatternLayout pattern="%d{ISO8601} %5p (%c) - %m%n"/>
+    </File>
+  </Appenders>
+  <Loggers>
+    <Logger name="com.oracle.deteminations.install.log" level="info" additivity="false">
+        <AppenderRef ref="install-log"/>
+    </Logger>
+    <Root level="warn">
+      <AppenderRef ref="STDOUT"/>
+    </Root>
+  </Loggers>
+</Configuration>

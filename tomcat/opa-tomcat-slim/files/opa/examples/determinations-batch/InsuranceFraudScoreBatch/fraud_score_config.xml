@@ -1,0 +1,39 @@
+<configuration>
+	<options>
+		<csv>csv</csv>
+		<output type="csv">output</output>
+		<processors>1</processors>
+		<rulebase>../../rulebases/compiled/InsuranceFraudScore.zip</rulebase>
+	</options>
+	<mappings>
+		<mapping entity="global" table="global" primary-key="#">
+			<attribute name="total_fraud_score" field="total_fraud_score" output="true"/>
+			<attribute name="total_fraud_score_green" field="total_fraud_score_green" output="true"/>
+			<attribute name="total_fraud_score_amber" field="total_fraud_score_amber" output="true"/>
+			<attribute name="total_fraud_score_red" field="total_fraud_score_red" output="true"/>
+			<attribute name="date_policy_inception" field="date_policy_inception" />
+			<attribute name="date_of_claim" field="date_of_claim" />
+			<attribute name="date_last_MTA" field="date_last_MTA" />
+			<attribute name="circumstance_code_description" field="circumstance_code_description" />
+			<attribute name="crime_reference_number_given" field="crime_reference_number_given" />
+			<attribute name="date_time_known" field="date_time_known" />
+			<attribute name="disclosure_modifications" field="disclosure_modifications" />
+			<attribute name="disclosure_previous_claims" field="disclosure_previous_claims" />
+			<attribute name="disclosure_previous_convictions" field="disclosure_previous_convictions" />
+			<attribute name="multiple_passengers" field="multiple_passengers" />
+			<attribute name="injury_flag" field="injury_flag" />
+			<attribute name="impact_speed" field="impact_speed" />
+			<attribute name="vehicle_value" field="vehicle_value" />
+			<attribute name="type_of_cover" field="type_of_cover" />
+			<attribute name="adverse_driver_flag" field="adverse_driver_flag" />
+			<attribute name="dob_policy_holder" field="dob_policy_holder" />
+			<attribute name="date_policy_renewal" field="date_policy_renewal" />
+			<attribute name="personal_effects_claim" field="personal_effects_claim" />
+		</mapping>
+		<mapping entity="previousclaim" table="previous_claim" primary-key="#">
+			<attribute name="total_fraud_score_prev" field="total_fraud_score" />
+			<relationship name="allinstancesofthepreviousclaim" source-entity="global" foreign-key="case_fk"/>
+		</mapping>
+	</mappings>
+
+</configuration>

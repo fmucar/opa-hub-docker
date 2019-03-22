@@ -1,0 +1,6 @@
+#,hide_online_billing_service,hide_priority_service,hide_24hr_support_service,hide_voicemail_service,existing_plan,future_plan
+1,,,,,HOMEPLAN1,HOMEPLAN2
+2,,,,,HOMEPLAN2,HOMEPLAN1
+3,,,,,MOBILEPLAN1,MOBILEPLAN2
+4,,,,,HOMEPLAN2,EXECUTIVEPLAN
+5,,,,,EXECUTIVEPLAN,MOBILEPLAN1

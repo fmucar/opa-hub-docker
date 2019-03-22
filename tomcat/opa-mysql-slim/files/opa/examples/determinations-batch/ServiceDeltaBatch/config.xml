@@ -1,0 +1,26 @@
+<configuration>
+	<options>
+		<csv>csv</csv>
+		<output type="csv">output</output>
+		<processors>2</processors>
+		<rulebase>../../rulebases/compiled/ServiceDelta.zip</rulebase>
+	</options>
+	<mappings>
+		<mapping entity="global" table="global" primary-key="#">
+			<attribute name="hide_online_billing_service" field="hide_online_billing_service" output="true" />
+			<attribute name="hide_priority_service"       field="hide_priority_service"       output="true" />
+			<attribute name="hide_24hr_support_service"   field="hide_24hr_support_service"   output="true" />
+			<attribute name="hide_voicemail_service"      field="hide_voicemail_service"      output="true" />
+			<attribute name="existing_plan"               field="existing_plan" />
+			<attribute name="future_plan"                 field="future_plan" />
+		</mapping>
+		
+		<mapping entity="service" table="service" primary-key="#">
+			<attribute name="service_name"                field="service_name"                output="true" />
+			<attribute name="service_status"              field="service_status"              output="true" />
+			<attribute name="service_existed_previously"  field="service_existed_previously"  output="true" />
+			<attribute name="service_required_in_future"  field="service_required_in_future"  output="true" />
+			<relationship name="all-services" source-entity="global" foreign-key="global_id" />
+		</mapping>
+	</mappings>
+</configuration>

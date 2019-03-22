@@ -1,0 +1,37 @@
+<configuration>
+    <options>
+        <base>opa_locations_view</base>
+        <rulebase>../../rulebases/compiled/human-resources.zip</rulebase>
+        <database>
+            <url>jdbc:oracle:thin:HR/HR@localhost:1521:xe</url>
+            <driver>oracle.jdbc.OracleDriver</driver>
+            <driversrc>.\lib\ojdbc5.jar</driversrc>
+        </database>
+        <output type="db" />
+    </options>
+    <mappings>
+        <mapping entity="global" table="opa_locations_view" primary-key="location_id">
+            <attribute name="street-address" field="street_address" />
+            <attribute name="city" field="city" />
+            <attribute name="postal-code" field="postal_code" />
+            <attribute name="state-province" field="state_province" />
+            <attribute name="location-total-salary-cost" field="total_salary" output="true" />
+        </mapping>
+        
+        <mapping entity="department" table="opa_departments_view" primary-key="department_id">
+            <attribute name="department-name" field="department_name" />
+            <attribute name="department-total-salary-cost" field="total_salary" output="true" />
+            <relationship name="all-departments" source-entity="global" foreign-key="location_id" />
+        </mapping>
+        
+        <mapping entity="employee" table="opa_employees_view" primary-key="employee_id">
+            <attribute name="first-name" field="first_name" />
+            <attribute name="last-name" field="last_name" />
+            <attribute name="hire-date" field="hire_date" />
+            <attribute name="salary" field="salary" />
+            <attribute name="commission-pct" field="commission_pct" />
+            <attribute name="long-service-date" field="long_service_date" output="true"/>
+            <relationship name="all-employees" source-entity="department" foreign-key="department_id" />
+        </mapping>
+    </mappings>
+</configuration>
